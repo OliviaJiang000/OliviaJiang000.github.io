@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-26 21:10:58" itemprop="dateModified" datetime="2025-05-26T21:10:58+01:00">2025-05-26</time>
+                <time title="修改时间：2025-05-26 21:31:23" itemprop="dateModified" datetime="2025-05-26T21:31:23+01:00">2025-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,56 +251,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
-<p>✅ 1. MNE + Plotly&#x2F;Dash EEG 可视化仪表盘<br>项目名：mne-tools&#x2F;mne-biomag-group-demo</p>
-<p>✅ 2. EEG-Notebooks by NeuroTechX<br>项目名：NeuroTechX&#x2F;eeg-notebooks</p>
-<p>✅ 3. Streamlit EEG Viewer<br>项目名：gmum&#x2F;eeg-streamlit</p>
-<p>✅ 4. EDF 文件可视化基础模板（个人项目）<br>示例项目名：MaciejSzpakowski&#x2F;edf-viewer</p>
-<p>✅ 5. BCI 方向完整可视化平台<br>项目名：MNE-BIDS-Pipeline</p>
-<p>一、拿到一份 EDF 数据可以做哪些分析？<br>EDF（European Data Format）是用来存储生物电信号（如 EEG&#x2F;ECG&#x2F;EMG）的标准格式。当你拿到一份 EDF 文件，你可以按以下层次进行分析：</p>
-<p>✅ 1. 数据结构探索（元信息 + 通道信息）<br>文件中包含哪些通道？（如 EEG Fpz-Cz、ECG、EMG）</p>
-<p>每个通道的采样率是多少？</p>
-<p>记录时长？注释有多少段？</p>
-<p>包含标注（annotations）吗？如睡眠阶段、任务标签</p>
-<p>📦 工具：raw.info, raw.ch_names, raw.annotations</p>
-<p>✅ 2. 原始波形可视化与浏览<br>多通道波形图（查看干扰、异常、放电、闭眼等）</p>
-<p>滤波前后比较（如带通 1–40Hz，去除漂移）</p>
-<p>📦 工具：raw.plot(), raw.filter()</p>
-<p>✅ 3. 频域分析<br>功率谱密度（PSD）：查看不同频段（δ、θ、α、β、γ）的能量</p>
-<p>频带能量分布统计</p>
-<p>📦 工具：raw.plot_psd(), psd_welch, fft, wavelet</p>
-<p>✅ 4. 时间-频率分析（频谱热图）<br>展示信号在不同时间段频率分布变化</p>
-<p>用于任务变化、睡眠阶段、癫痫发作检测等</p>
-<p>📦 工具：tfr_multitaper, STFT, CWT</p>
-<p>✅ 5. 通道比较&#x2F;空间分析<br>多通道相关性分析（同步性、相干性）</p>
-<p>Topomap 头皮地形图：显示某一频段能量在头皮的分布</p>
-<p>📦 工具：mne.viz.plot_topomap(), spectral_connectivity()</p>
-<p>✅ 6. 注释分析 &#x2F; 事件相关分析（ERPs, Sleep stage）<br>标注信息的提取与分段（如 N1、N2、REM 等）</p>
-<p>不同阶段的统计对比（如不同睡眠阶段的 PSD）</p>
-<p>事件相关电位（ERP）</p>
-<p>📦 工具：mne.read_annotations, raw.annotations, Epochs</p>
-<p>✅ 7. 去伪迹处理（如眨眼、肌电）<br>使用 ICA 去除眼电、肌电等干扰</p>
-<p>📦 工具：mne.preprocessing.ICA()</p>
-<p>✅ 8. 特征提取 + 机器学习<br>提取：</p>
-<p>均值、峰值、方差</p>
-<p>频带功率、熵、相位同步</p>
-<p>构建：</p>
-<p>分类模型（如睡眠阶段、情绪识别、癫痫检测）</p>
-<p>特征选择与通道压缩</p>
-<p>📦 工具：sklearn, xgboost, cnn&#x2F;lstm, tsfresh, mne_features</p>
-<p>✅ 9. 可视化仪表盘构建<br>使用 Dash &#x2F; Streamlit 构建交互式页面</p>
-<p>支持通道选择、波形查看、频谱切换、事件对比等</p>
-<p>📦 工具：plotly, dash, streamlit, holoviews</p>
-<p>📦 二、EDF 原始数据的结构（Technical）<br>一个 EDF 文件本质上包含：</p>
-<p>✅ 1. Header（元信息）<br>PatientID, RecordingID</p>
-<p>记录时间、通道数、采样率</p>
-<p>每个通道的物理单位（μV）、量化范围</p>
-<p>✅ 2. Signal Data（电信号矩阵）<br>通道数 × 总采样点数</p>
-<p>通常按通道叠加方式编码</p>
-<p>例如：</p>
-<p>python<br>复制<br>编辑<br>import mne<br>raw &#x3D; mne.io.read_raw_edf(“file.edf”, preload&#x3D;True)<br>data, times &#x3D; raw[:]  # data shape: (n_channels, n_samples)<br>✅ 3. Annotations（可选）<br>EDF+ 格式支持事件标注：如睡眠阶段、刺激出现等</p>
-<p>python<br>复制<br>编辑<br>annotations &#x3D; raw.annotations<br>✅ 结论：EDF 是什么？你能做什么？<br>EDF 文件 ≈ 多通道生物电信号 + 元信息 + 注释（可选）<br>你可以从信号质量控制 → 时频分析 → 空间分析 → 特征提取 → 可视化展示进行完整工作流，最终可以对接 AI 模型。</p>
-
+          <p>5个edf数据可视化集源（git），日后会更新自己整合的可视化平台</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/25/VisualizationOfEdf/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -342,9 +302,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-05-21 16:56:11 / 修改时间：16:58:53" itemprop="dateCreated datePublished" datetime="2025-05-21T16:56:11+01:00">2025-05-21</time>
+              <time title="创建时间：2025-05-21 16:56:11" itemprop="dateCreated datePublished" datetime="2025-05-21T16:56:11+01:00">2025-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-26 21:33:12" itemprop="dateModified" datetime="2025-05-26T21:33:12+01:00">2025-05-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BCI%E8%B5%84%E6%96%99/" itemprop="url" rel="index"><span itemprop="name">BCI资料</span></a>
+                </span>
             </span>
 
           
@@ -358,10 +333,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>数据集<br><a target="_blank" rel="noopener" href="https://physionet.org/">physionet公开数据集网址</a></p>
-<p>硬件</p>
-<p>软件</p>
-
+          <p>记录一些脑机相关的网址</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/21/%E8%84%91%E6%9C%BA%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -411,7 +392,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-26 21:11:00" itemprop="dateModified" datetime="2025-05-26T21:11:00+01:00">2025-05-26</time>
+                <time title="修改时间：2025-05-26 21:31:29" itemprop="dateModified" datetime="2025-05-26T21:31:29+01:00">2025-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -434,7 +415,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>以下是一份系统化的 <strong>EDF 脑电数据可分析清单</strong>，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。</p>
+          <p>EDF（European Data Format）是用来存储生物电信号（如 EEG&#x2F;ECG&#x2F;EMG）的标准格式。<br>以下是一份系统化的 <strong>EDF 脑电数据可分析清单</strong>，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。</p>
 <hr>
           <!--noindex-->
             <div class="post-button">
@@ -826,7 +807,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

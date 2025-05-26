@@ -20,27 +20,27 @@
     var CONFIG = {"hostname":"oliviajiang000.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
+  <meta name="description" content="EDF（European Data Format）是用来存储生物电信号（如 EEG&#x2F;ECG&#x2F;EMG）的标准格式。以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一次多模态edf数据可视化练习（02）">
 <meta property="og:url" content="https://oliviajiang000.github.io/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Jo Jo">
-<meta property="og:description" content="以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
+<meta property="og:description" content="EDF（European Data Format）是用来存储生物电信号（如 EEG&#x2F;ECG&#x2F;EMG）的标准格式。以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://oliviajiang000.github.io/image.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-1.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-2.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-3.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-6.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-7.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-5.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/image-4.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-1.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-2.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-3.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-6.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-7.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-5.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image-4.png">
 <meta property="article:published_time" content="2025-05-15T18:10:52.000Z">
-<meta property="article:modified_time" content="2025-05-26T20:11:00.250Z">
+<meta property="article:modified_time" content="2025-05-26T20:31:29.423Z">
 <meta property="article:author" content="Jo Jo">
 <meta property="article:tag" content="BCI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oliviajiang000.github.io/image.png">
+<meta name="twitter:image" content="https://oliviajiang000.github.io/images/programs/BCI_EDFSample/image.png">
 
 <link rel="canonical" href="https://oliviajiang000.github.io/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/">
 
@@ -240,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-26 21:11:00" itemprop="dateModified" datetime="2025-05-26T21:11:00+01:00">2025-05-26</time>
+                <time title="修改时间：2025-05-26 21:31:29" itemprop="dateModified" datetime="2025-05-26T21:31:29+01:00">2025-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,10 +263,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以下是一份系统化的 <strong>EDF 脑电数据可分析清单</strong>，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。</p>
+        <p>EDF（European Data Format）是用来存储生物电信号（如 EEG&#x2F;ECG&#x2F;EMG）的标准格式。<br>以下是一份系统化的 <strong>EDF 脑电数据可分析清单</strong>，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。</p>
 <hr>
 <span id="more"></span>
-<h2 id="🧠-EDF-脑电信号可分析清单（适用于-EEG-睡眠-BCI-数据）"><a href="#🧠-EDF-脑电信号可分析清单（适用于-EEG-睡眠-BCI-数据）" class="headerlink" title="🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）"></a>🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）</h2><h3 id="🟢-第一阶段：基本信息与波形可视化"><a href="#🟢-第一阶段：基本信息与波形可视化" class="headerlink" title="🟢 第一阶段：基本信息与波形可视化"></a>🟢 第一阶段：基本信息与波形可视化</h3><table>
+
+<h1 id="🟢-第一阶段：基本信息与波形可视化"><a href="#🟢-第一阶段：基本信息与波形可视化" class="headerlink" title="🟢 第一阶段：基本信息与波形可视化"></a>🟢 第一阶段：基本信息与波形可视化</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -295,7 +296,10 @@
 <td><code>raw.filter(l_freq, h_freq)</code></td>
 </tr>
 </tbody></table>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/image.png" alt="多通道波形图"><br><img src="/image-1.png" alt="事件图"></h2><h3 id="🟡-第二阶段：频域分析与热图"><a href="#🟡-第二阶段：频域分析与热图" class="headerlink" title="🟡 第二阶段：频域分析与热图"></a>🟡 第二阶段：频域分析与热图</h3><table>
+<h2 id="多通道波形图"><a href="#多通道波形图" class="headerlink" title="多通道波形图"></a>多通道波形图</h2><p><img src="/images/programs/BCI_EDFSample/image.png" alt="多通道波形图"></p>
+<h2 id="事件图"><a href="#事件图" class="headerlink" title="事件图"></a>事件图</h2><p><img src="/images/programs/BCI_EDFSample/image-1.png" alt="事件图"></p>
+<hr>
+<h1 id="🟡-第二阶段：频域分析与热图"><a href="#🟡-第二阶段：频域分析与热图" class="headerlink" title="🟡 第二阶段：频域分析与热图"></a>🟡 第二阶段：频域分析与热图</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -319,7 +323,10 @@
 <td><code>bandpower()</code>（自定义）</td>
 </tr>
 </tbody></table>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/image-2.png" alt="PSD 功率谱图"><br><img src="/image-3.png" alt="alt text"></h2><h3 id="🔵-第三阶段：空间分布与伪迹剔除"><a href="#🔵-第三阶段：空间分布与伪迹剔除" class="headerlink" title="🔵 第三阶段：空间分布与伪迹剔除"></a>🔵 第三阶段：空间分布与伪迹剔除</h3><table>
+<h2 id="PSD功率谱图"><a href="#PSD功率谱图" class="headerlink" title="PSD功率谱图"></a>PSD功率谱图</h2><p><img src="/images/programs/BCI_EDFSample/image-2.png" alt="PSD 功率谱图"></p>
+<h2 id="Topomap"><a href="#Topomap" class="headerlink" title="Topomap"></a>Topomap</h2><p><img src="/images/programs/BCI_EDFSample/image-3.png" alt="alt text"></p>
+<hr>
+<h1 id="🔵-第三阶段：空间分布与伪迹剔除"><a href="#🔵-第三阶段：空间分布与伪迹剔除" class="headerlink" title="🔵 第三阶段：空间分布与伪迹剔除"></a>🔵 第三阶段：空间分布与伪迹剔除</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -343,9 +350,10 @@
 <td><code>spectral_connectivity()</code></td>
 </tr>
 </tbody></table>
-<p><img src="/image-6.png" alt="Topomap 头皮地形图&#x2F;ICA 去伪迹"><br><img src="/image-7.png" alt="ICA 去伪迹  "></p>
+<h2 id="Topomap-头皮地形图-ICA-去伪迹"><a href="#Topomap-头皮地形图-ICA-去伪迹" class="headerlink" title="Topomap 头皮地形图&#x2F;ICA 去伪迹"></a>Topomap 头皮地形图&#x2F;ICA 去伪迹</h2><p><img src="/images/programs/BCI_EDFSample/image-6.png" alt="Topomap 头皮地形图&#x2F;ICA 去伪迹"></p>
+<h2 id="ICA-去伪迹"><a href="#ICA-去伪迹" class="headerlink" title="ICA 去伪迹"></a>ICA 去伪迹</h2><p><img src="/images/programs/BCI_EDFSample/image-7.png" alt="ICA 去伪迹  "></p>
 <hr>
-<h3 id="🟠-第四阶段：事件与标签分析（如睡眠、任务段）"><a href="#🟠-第四阶段：事件与标签分析（如睡眠、任务段）" class="headerlink" title="🟠 第四阶段：事件与标签分析（如睡眠、任务段）"></a>🟠 第四阶段：事件与标签分析（如睡眠、任务段）</h3><table>
+<h1 id="🟠-第四阶段：事件与标签分析（如睡眠、任务段）"><a href="#🟠-第四阶段：事件与标签分析（如睡眠、任务段）" class="headerlink" title="🟠 第四阶段：事件与标签分析（如睡眠、任务段）"></a>🟠 第四阶段：事件与标签分析（如睡眠、任务段）</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -374,7 +382,10 @@
 <td>自定义 plot or <code>yasa.plot_hypnogram()</code></td>
 </tr>
 </tbody></table>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="/image-5.png" alt="ERP 分析"><br><img src="/image-4.png" alt="Hypnogram 睡眠图"></h2><h3 id="🔴-第五阶段：特征提取与机器学习"><a href="#🔴-第五阶段：特征提取与机器学习" class="headerlink" title="🔴 第五阶段：特征提取与机器学习"></a>🔴 第五阶段：特征提取与机器学习</h3><table>
+<h2 id="ERP-分析"><a href="#ERP-分析" class="headerlink" title="ERP 分析"></a>ERP 分析</h2><p><img src="/images/programs/BCI_EDFSample/image-5.png" alt="ERP 分析"></p>
+<h2 id="Hypnogram-睡眠图"><a href="#Hypnogram-睡眠图" class="headerlink" title="Hypnogram 睡眠图"></a>Hypnogram 睡眠图</h2><p><img src="/images/programs/BCI_EDFSample/image-4.png" alt="Hypnogram 睡眠图"></p>
+<hr>
+<h1 id="🔴-第五阶段：特征提取与机器学习"><a href="#🔴-第五阶段：特征提取与机器学习" class="headerlink" title="🔴 第五阶段：特征提取与机器学习"></a>🔴 第五阶段：特征提取与机器学习</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -404,7 +415,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h3 id="🟣-第六阶段：交互式可视化仪表盘"><a href="#🟣-第六阶段：交互式可视化仪表盘" class="headerlink" title="🟣 第六阶段：交互式可视化仪表盘"></a>🟣 第六阶段：交互式可视化仪表盘</h3><table>
+<h1 id="🟣-第六阶段：交互式可视化仪表盘"><a href="#🟣-第六阶段：交互式可视化仪表盘" class="headerlink" title="🟣 第六阶段：交互式可视化仪表盘"></a>🟣 第六阶段：交互式可视化仪表盘</h1><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -429,16 +440,6 @@
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-推荐组合路径示意"><a href="#✅-推荐组合路径示意" class="headerlink" title="✅ 推荐组合路径示意"></a>✅ 推荐组合路径示意</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">→ 读取 EDF 文件</span><br><span class="line">   → 波形可视化 + 滤波</span><br><span class="line">   → PSD + Topomap + 热图</span><br><span class="line">   → ICA 去伪迹</span><br><span class="line">   → 注释分段 / 睡眠阶段提取</span><br><span class="line">   → 特征提取（时间 + 频率 + 非线性）</span><br><span class="line">   → 分类模型 + GradCAM 可解释性</span><br><span class="line">   → Dash/Streamlit 交互展示</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>如果你告诉我：</p>
-<ul>
-<li>你这份 EDF 数据的 <strong>类型</strong>（EEG？ECG？睡眠？BCI 任务？）</li>
-<li>有没有 <strong>annotations</strong></li>
-<li>你目前的 <strong>目标分析方向</strong></li>
-</ul>
-<p>我可以基于这张清单为你制定<strong>分阶段代码模板与实现步骤</strong>，从零到仪表盘都能帮你搭出来。是否继续？</p>
 
     </div>
 
@@ -522,7 +523,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%A7%A0-EDF-%E8%84%91%E7%94%B5%E4%BF%A1%E5%8F%B7%E5%8F%AF%E5%88%86%E6%9E%90%E6%B8%85%E5%8D%95%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E-EEG-%E7%9D%A1%E7%9C%A0-BCI-%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A2-%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%B3%A2%E5%BD%A2%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">🟢 第一阶段：基本信息与波形可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A1-%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E9%A2%91%E5%9F%9F%E5%88%86%E6%9E%90%E4%B8%8E%E7%83%AD%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">🟡 第二阶段：频域分析与热图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">3.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B5-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E4%B8%8E%E4%BC%AA%E8%BF%B9%E5%89%94%E9%99%A4"><span class="nav-number">3.1.</span> <span class="nav-text">🔵 第三阶段：空间分布与伪迹剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A0-%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A0%87%E7%AD%BE%E5%88%86%E6%9E%90%EF%BC%88%E5%A6%82%E7%9D%A1%E7%9C%A0%E3%80%81%E4%BB%BB%E5%8A%A1%E6%AE%B5%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">🟠 第四阶段：事件与标签分析（如睡眠、任务段）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B4-%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.1.</span> <span class="nav-text">🔴 第五阶段：特征提取与机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A3-%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%AA%E8%A1%A8%E7%9B%98"><span class="nav-number">4.2.</span> <span class="nav-text">🟣 第六阶段：交互式可视化仪表盘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%8E%A8%E8%8D%90%E7%BB%84%E5%90%88%E8%B7%AF%E5%BE%84%E7%A4%BA%E6%84%8F"><span class="nav-number">5.</span> <span class="nav-text">✅ 推荐组合路径示意</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9F%A2-%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%B3%A2%E5%BD%A2%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">🟢 第一阶段：基本信息与波形可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%80%9A%E9%81%93%E6%B3%A2%E5%BD%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">多通道波形图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">事件图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9F%A1-%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E9%A2%91%E5%9F%9F%E5%88%86%E6%9E%90%E4%B8%8E%E7%83%AD%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">🟡 第二阶段：频域分析与热图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PSD%E5%8A%9F%E7%8E%87%E8%B0%B1%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">PSD功率谱图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topomap"><span class="nav-number">2.2.</span> <span class="nav-text">Topomap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B5-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E4%B8%8E%E4%BC%AA%E8%BF%B9%E5%89%94%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">🔵 第三阶段：空间分布与伪迹剔除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topomap-%E5%A4%B4%E7%9A%AE%E5%9C%B0%E5%BD%A2%E5%9B%BE-ICA-%E5%8E%BB%E4%BC%AA%E8%BF%B9"><span class="nav-number">3.1.</span> <span class="nav-text">Topomap 头皮地形图&#x2F;ICA 去伪迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICA-%E5%8E%BB%E4%BC%AA%E8%BF%B9"><span class="nav-number">3.2.</span> <span class="nav-text">ICA 去伪迹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9F%A0-%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A0%87%E7%AD%BE%E5%88%86%E6%9E%90%EF%BC%88%E5%A6%82%E7%9D%A1%E7%9C%A0%E3%80%81%E4%BB%BB%E5%8A%A1%E6%AE%B5%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">🟠 第四阶段：事件与标签分析（如睡眠、任务段）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ERP-%E5%88%86%E6%9E%90"><span class="nav-number">4.1.</span> <span class="nav-text">ERP 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hypnogram-%E7%9D%A1%E7%9C%A0%E5%9B%BE"><span class="nav-number">4.2.</span> <span class="nav-text">Hypnogram 睡眠图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B4-%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">5.</span> <span class="nav-text">🔴 第五阶段：特征提取与机器学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9F%A3-%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%AA%E8%A1%A8%E7%9B%98"><span class="nav-number">6.</span> <span class="nav-text">🟣 第六阶段：交互式可视化仪表盘</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -545,7 +546,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
