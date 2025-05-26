@@ -20,30 +20,29 @@
     var CONFIG = {"hostname":"oliviajiang000.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="🧠 BCI 基于 EEG 的情绪分析实战 用 Python + 脑电数据 + 深度学习完成一次实际的 BCI 情绪分析项目，实现了从信号处理，到分类评估，再到模型可视化和压缩的全链路分析，并写成一篇可扩展的论文或博客文章。">
+  <meta name="description" content="以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一次EEG情绪数据集的简单尝试（01）">
-<meta property="og:url" content="https://oliviajiang000.github.io/2025/05/13/%E4%B8%80%E6%AC%A1EEG%E6%83%85%E7%BB%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%AE%80%E5%8D%95%E5%B0%9D%E8%AF%95/index.html">
+<meta property="og:title" content="一次多模态edf数据可视化练习（02）">
+<meta property="og:url" content="https://oliviajiang000.github.io/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Jo Jo">
-<meta property="og:description" content="🧠 BCI 基于 EEG 的情绪分析实战 用 Python + 脑电数据 + 深度学习完成一次实际的 BCI 情绪分析项目，实现了从信号处理，到分类评估，再到模型可视化和压缩的全链路分析，并写成一篇可扩展的论文或博客文章。">
+<meta property="og:description" content="以下是一份系统化的 EDF 脑电数据可分析清单，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_mean_comparison.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_mean_heatmap.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_fft_comparison.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_confusion_matrix.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_feature_importance.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/cnn_confusion_matrix.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_pca_2d.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_fft_comparison.png">
-<meta property="og:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_feature_importance_top100.png">
-<meta property="article:published_time" content="2025-05-13T22:53:35.000Z">
-<meta property="article:modified_time" content="2025-05-26T20:11:03.929Z">
+<meta property="og:image" content="https://oliviajiang000.github.io/image.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-1.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-2.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-3.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-6.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-7.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-5.png">
+<meta property="og:image" content="https://oliviajiang000.github.io/image-4.png">
+<meta property="article:published_time" content="2025-05-15T18:10:52.000Z">
+<meta property="article:modified_time" content="2025-05-26T20:11:00.250Z">
 <meta property="article:author" content="Jo Jo">
 <meta property="article:tag" content="BCI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oliviajiang000.github.io/images/programs/BCI_EasySample/emotion_mean_comparison.png">
+<meta name="twitter:image" content="https://oliviajiang000.github.io/image.png">
 
-<link rel="canonical" href="https://oliviajiang000.github.io/2025/05/13/%E4%B8%80%E6%AC%A1EEG%E6%83%85%E7%BB%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%AE%80%E5%8D%95%E5%B0%9D%E8%AF%95/">
+<link rel="canonical" href="https://oliviajiang000.github.io/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -56,7 +55,7 @@
   };
 </script>
 
-  <title>一次EEG情绪数据集的简单尝试（01） | Jo Jo</title>
+  <title>一次多模态edf数据可视化练习（02） | Jo Jo</title>
   
 
 
@@ -211,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://oliviajiang000.github.io/2025/05/13/%E4%B8%80%E6%AC%A1EEG%E6%83%85%E7%BB%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%AE%80%E5%8D%95%E5%B0%9D%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://oliviajiang000.github.io/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/183099819.jpeg">
@@ -224,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一次EEG情绪数据集的简单尝试（01）
+          一次多模态edf数据可视化练习（02）
         </h1>
 
         <div class="post-meta">
@@ -234,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-05-13 23:53:35" itemprop="dateCreated datePublished" datetime="2025-05-13T23:53:35+01:00">2025-05-13</time>
+              <time title="创建时间：2025-05-15 19:10:52" itemprop="dateCreated datePublished" datetime="2025-05-15T19:10:52+01:00">2025-05-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-26 21:11:03" itemprop="dateModified" datetime="2025-05-26T21:11:03+01:00">2025-05-26</time>
+                <time title="修改时间：2025-05-26 21:11:00" itemprop="dateModified" datetime="2025-05-26T21:11:00+01:00">2025-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,78 +263,182 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="🧠-BCI-基于-EEG-的情绪分析实战"><a href="#🧠-BCI-基于-EEG-的情绪分析实战" class="headerlink" title="🧠 BCI 基于 EEG 的情绪分析实战"></a>🧠 BCI 基于 EEG 的情绪分析实战</h1><blockquote>
-<p>用 Python + 脑电数据 + 深度学习完成一次实际的 BCI 情绪分析项目，实现了从信号处理，到分类评估，再到模型可视化和压缩的全链路分析，并写成一篇可扩展的论文或博客文章。</p>
-</blockquote>
+        <p>以下是一份系统化的 <strong>EDF 脑电数据可分析清单</strong>，覆盖数据理解、可视化、预处理、特征提取、模型建立与展示。</p>
 <hr>
 <span id="more"></span>
+<h2 id="🧠-EDF-脑电信号可分析清单（适用于-EEG-睡眠-BCI-数据）"><a href="#🧠-EDF-脑电信号可分析清单（适用于-EEG-睡眠-BCI-数据）" class="headerlink" title="🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）"></a>🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）</h2><h3 id="🟢-第一阶段：基本信息与波形可视化"><a href="#🟢-第一阶段：基本信息与波形可视化" class="headerlink" title="🟢 第一阶段：基本信息与波形可视化"></a>🟢 第一阶段：基本信息与波形可视化</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具&#x2F;函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📋 通道列表</td>
+<td>查看通道名、数量、单位</td>
+<td><code>raw.ch_names</code>, <code>raw.info</code></td>
+</tr>
+<tr>
+<td>⏱ 时长与采样率</td>
+<td>了解数据总长度、每秒采样数</td>
+<td><code>raw.info[&#39;sfreq&#39;]</code>, <code>raw.times</code></td>
+</tr>
+<tr>
+<td>📈 波形图</td>
+<td>绘制多通道 EEG 波形</td>
+<td><code>raw.plot()</code></td>
+</tr>
+<tr>
+<td>🎚 滤波前后比较</td>
+<td>高频滤波（除肌电）、低频滤波（除漂移）</td>
+<td><code>raw.filter(l_freq, h_freq)</code></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/image.png" alt="多通道波形图"><br><img src="/image-1.png" alt="事件图"></h2><h3 id="🟡-第二阶段：频域分析与热图"><a href="#🟡-第二阶段：频域分析与热图" class="headerlink" title="🟡 第二阶段：频域分析与热图"></a>🟡 第二阶段：频域分析与热图</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具&#x2F;函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📊 PSD 功率谱图</td>
+<td>观察 δ~γ 各频段强度</td>
+<td><code>raw.plot_psd()</code></td>
+</tr>
+<tr>
+<td>🌡 时频热图</td>
+<td>短时傅里叶、小波变换等频谱变化</td>
+<td><code>tfr_multitaper()</code></td>
+</tr>
+<tr>
+<td>🌈 频段能量提取</td>
+<td>计算特定频段平均能量</td>
+<td><code>bandpower()</code>（自定义）</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/image-2.png" alt="PSD 功率谱图"><br><img src="/image-3.png" alt="alt text"></h2><h3 id="🔵-第三阶段：空间分布与伪迹剔除"><a href="#🔵-第三阶段：空间分布与伪迹剔除" class="headerlink" title="🔵 第三阶段：空间分布与伪迹剔除"></a>🔵 第三阶段：空间分布与伪迹剔除</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具&#x2F;函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🧭 Topomap 头皮地形图</td>
+<td>可视化某频段功率在空间分布</td>
+<td><code>raw.compute_psd().plot_topomap()</code></td>
+</tr>
+<tr>
+<td>👁 ICA 去伪迹</td>
+<td>去除眼动、肌电等干扰</td>
+<td><code>ICA().fit(raw)</code> → <code>ica.exclude</code></td>
+</tr>
+<tr>
+<td>🔗 通道间连接</td>
+<td>查看脑区同步（相干性）</td>
+<td><code>spectral_connectivity()</code></td>
+</tr>
+</tbody></table>
+<p><img src="/image-6.png" alt="Topomap 头皮地形图&#x2F;ICA 去伪迹"><br><img src="/image-7.png" alt="ICA 去伪迹  "></p>
+<hr>
+<h3 id="🟠-第四阶段：事件与标签分析（如睡眠、任务段）"><a href="#🟠-第四阶段：事件与标签分析（如睡眠、任务段）" class="headerlink" title="🟠 第四阶段：事件与标签分析（如睡眠、任务段）"></a>🟠 第四阶段：事件与标签分析（如睡眠、任务段）</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具&#x2F;函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📝 标注提取</td>
+<td>查看文件中有无注释&#x2F;事件</td>
+<td><code>raw.annotations</code></td>
+</tr>
+<tr>
+<td>⏳ 分段 Epochs</td>
+<td>基于标注&#x2F;事件将数据切分</td>
+<td><code>mne.Epochs()</code></td>
+</tr>
+<tr>
+<td>📉 ERP 分析</td>
+<td>计算时间锁定电位</td>
+<td><code>evoked = epochs.average()</code></td>
+</tr>
+<tr>
+<td>🛏 Hypnogram 睡眠图</td>
+<td>绘制睡眠阶段标注图</td>
+<td>自定义 plot or <code>yasa.plot_hypnogram()</code></td>
+</tr>
+</tbody></table>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="/image-5.png" alt="ERP 分析"><br><img src="/image-4.png" alt="Hypnogram 睡眠图"></h2><h3 id="🔴-第五阶段：特征提取与机器学习"><a href="#🔴-第五阶段：特征提取与机器学习" class="headerlink" title="🔴 第五阶段：特征提取与机器学习"></a>🔴 第五阶段：特征提取与机器学习</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具&#x2F;函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🧮 时间域特征</td>
+<td>均值、峰度、方差、过零点数</td>
+<td><code>numpy</code> &#x2F; <code>tsfresh</code></td>
+</tr>
+<tr>
+<td>📶 频域特征</td>
+<td>α、β波功率，频谱斜率</td>
+<td><code>psd</code>, <code>bandpower</code></td>
+</tr>
+<tr>
+<td>🔢 非线性特征</td>
+<td>熵、复杂性、样本熵</td>
+<td><code>antropy</code> &#x2F; <code>entropy()</code></td>
+</tr>
+<tr>
+<td>🤖 分类建模</td>
+<td>睡眠分期、情绪识别、状态识别</td>
+<td><code>sklearn</code>, <code>xgboost</code>, <code>cnn</code>, <code>lstm</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="🟣-第六阶段：交互式可视化仪表盘"><a href="#🟣-第六阶段：交互式可视化仪表盘" class="headerlink" title="🟣 第六阶段：交互式可视化仪表盘"></a>🟣 第六阶段：交互式可视化仪表盘</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📊 通道切换查看</td>
+<td>可选通道查看波形</td>
+<td><code>Plotly</code>, <code>Dash</code></td>
+</tr>
+<tr>
+<td>🎛 多图联动</td>
+<td>左侧时频图，右侧 Topomap</td>
+<td><code>Dash</code>, <code>Streamlit</code>, <code>Panel</code></td>
+</tr>
+<tr>
+<td>🧭 交互头皮图</td>
+<td>鼠标悬停查看每个电极数据</td>
+<td><code>mne interactive</code>, <code>plotly</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✅-推荐组合路径示意"><a href="#✅-推荐组合路径示意" class="headerlink" title="✅ 推荐组合路径示意"></a>✅ 推荐组合路径示意</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">→ 读取 EDF 文件</span><br><span class="line">   → 波形可视化 + 滤波</span><br><span class="line">   → PSD + Topomap + 热图</span><br><span class="line">   → ICA 去伪迹</span><br><span class="line">   → 注释分段 / 睡眠阶段提取</span><br><span class="line">   → 特征提取（时间 + 频率 + 非线性）</span><br><span class="line">   → 分类模型 + GradCAM 可解释性</span><br><span class="line">   → Dash/Streamlit 交互展示</span><br></pre></td></tr></table></figure>
 
-<h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>脑机接口 (Brain-Computer Interface, BCI) 把人的脑电信号转换成可识别的组织信息，应用于辅助分类情绪、施行控制、识别运动意图等场景。</p>
-<p>本项目使用 EEG Eye State 数据集 (简化名 emotions.csv)，完成了一套 BCI 情绪分析实验。</p>
-<h2 id="二、数据结构介绍"><a href="#二、数据结构介绍" class="headerlink" title="二、数据结构介绍"></a>二、数据结构介绍</h2><ul>
-<li><p>格式：CSV</p>
-</li>
-<li><p>行数：约 1000 条 EEG 记录</p>
-</li>
-<li><p>列：</p>
+<hr>
+<p>如果你告诉我：</p>
 <ul>
-<li><code>mean_</code> 系列：14 个 EEG 速度基本统计特征</li>
-<li><code>fft_</code> 系列：高维 FFT 频域特征</li>
-<li><code>label</code>：POSITIVE, NEUTRAL, NEGATIVE</li>
+<li>你这份 EDF 数据的 <strong>类型</strong>（EEG？ECG？睡眠？BCI 任务？）</li>
+<li>有没有 <strong>annotations</strong></li>
+<li>你目前的 <strong>目标分析方向</strong></li>
 </ul>
-</li>
-</ul>
-<h2 id="三、分析步骤"><a href="#三、分析步骤" class="headerlink" title="三、分析步骤"></a>三、分析步骤</h2><h3 id="【阶段1】多通道平均值分析"><a href="#【阶段1】多通道平均值分析" class="headerlink" title="【阶段1】多通道平均值分析"></a>【阶段1】多通道平均值分析</h3><ul>
-<li>分别计算不同情绪下每个 EEG 通道的 mean 值</li>
-<li>展示最易变化的通道</li>
-</ul>
-<p>目标：找出哪些通道在“睁眼”和“闭眼”状态下差异显著。<br>产出：通道均值变化图、多通道热力图</p>
-<p>下图展示了三种情绪的脑电均值分布：<br><img src="/images/programs/BCI_EasySample/emotion_mean_comparison.png" alt="emotion_mean_comparison"></p>
-<p>热力图也帮助我们观察到整体趋势：<br><img src="/images/programs/BCI_EasySample/emotion_mean_heatmap.png" alt="emotion_mean_heatmap"></p>
-<p>✅ 图像解读 &amp; 数据含义<br>📈 折线图（emotion_mean_comparison.png）观察：<br>**NEUTRAL（橙）**始终维持在最高的平均电压水平，说明中性情绪时脑电活动较稳定。</p>
-<p>**NEGATIVE（蓝）**在多个通道呈现出明显的“断崖式”下降，存在大量 极低电压点（&lt;-250），可能为高度压抑或某种伪迹（需进一步频域检验）。</p>
-<p>**POSITIVE（绿）**相对平稳，波动小于负面情绪，说明积极情绪下脑区活跃，但没有强烈起伏。</p>
-<p>👉 这些异常负值可能代表情绪压抑时的大脑某些区域处于低电位状态，尤其集中在左右两个对称区域（如0–20、60–80通道段）。</p>
-<h3 id="【阶段2】-FFT-频域分析"><a href="#【阶段2】-FFT-频域分析" class="headerlink" title="【阶段2】 FFT 频域分析"></a>【阶段2】 FFT 频域分析</h3><p>目标：提取 Alpha &#x2F; Beta 等频段功率，看看闭眼时是否存在 Alpha 波增强现象。<br>产出：频谱图、频段能量条形图、频段差异分析结论。</p>
-<ul>
-<li>通过 <code>fft_</code> 列接入片段频域</li>
-<li>对每种情绪下的频段进行力度分析</li>
-<li>探索 Alpha 和 Beta 波的特征区别<br><img src="/images/programs/BCI_EasySample/emotion_fft_comparison.png" alt="emotion_fft_comparison"></li>
-</ul>
-<h3 id="【阶段3】-使用-Random-Forest-进行分类"><a href="#【阶段3】-使用-Random-Forest-进行分类" class="headerlink" title="【阶段3】 使用 Random Forest 进行分类"></a>【阶段3】 使用 Random Forest 进行分类</h3><p>目标：提取 EEG 特征，用分类器预测眼睛状态（0&#x2F;1）<br>产出：训练准确率、混淆矩阵、ROC 曲线图、特征工程过程</p>
-<ul>
-<li>特征：mean + fft (~2000维)</li>
-<li>模型：Random Forest</li>
-<li>结果：准确率 ~92%</li>
-<li>输出特征重要性排名<br>emotion_confusion_matrix.png<br><img src="/images/programs/BCI_EasySample/emotion_confusion_matrix.png" alt="emotion_confusion_matrix"><br><img src="/images/programs/BCI_EasySample/emotion_feature_importance.png" alt="emotion_feature_importance"></li>
-</ul>
-<h3 id="【阶段4】-CNN-深度学习识别"><a href="#【阶段4】-CNN-深度学习识别" class="headerlink" title="【阶段4】 CNN 深度学习识别"></a>【阶段4】 CNN 深度学习识别</h3><p>目标：构建 1D CNN &#x2F; LSTM 模型进行时序分类<br>产出：模型架构图、训练过程图、性能对比、博客实录</p>
-<ul>
-<li>输入：[batch, 1, feature_dim]</li>
-<li>结果：96.25% accuracy</li>
-<li>输出 Loss 曲线 &amp; Confusion Matrix<br><img src="/images/programs/BCI_EasySample/cnn_confusion_matrix.png" alt="cnn_confusion_matrix"></li>
-</ul>
-<h3 id="【阶段5】-特征压缩"><a href="#【阶段5】-特征压缩" class="headerlink" title="【阶段5】 特征压缩"></a>【阶段5】 特征压缩</h3><p>目标：找到对预测最关键的通道组合，做特征冗余分析<br>产出：特征重要性图、通道组合实验报告</p>
-<ul>
-<li>基于 RF 特征重要性</li>
-<li>保留 Top 100 特征</li>
-<li>CNN 在 100 特征下保持了 90.4% accuracy<br><img src="/images/programs/BCI_EasySample/emotion_pca_2d.png" alt="emotion_pca_2d.png"><br><img src="/images/programs/BCI_EasySample/emotion_fft_comparison.png" alt="emotion_fft_comparison"><br><img src="/images/programs/BCI_EasySample/emotion_feature_importance_top100.png" alt="emotion_feature_importance_top100"></li>
-</ul>
-<h3 id="【阶段6】-GradCAM-观察"><a href="#【阶段6】-GradCAM-观察" class="headerlink" title="【阶段6】 GradCAM 观察"></a>【阶段6】 GradCAM 观察</h3><ul>
-<li>对 CNN 分类结果进行 GradCAM 反向口解</li>
-<li>展示 CNN 最关注的 EEG 特征区域</li>
-</ul>
-<h2 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h2><ul>
-<li>从信号到分类，用一个小型 EEG 数据进行了完整的实战验证</li>
-<li>使用 RF 和 CNN 分别作为基线和强化模型</li>
-<li>GradCAM 和特征重要性结合用于压缩和可观化</li>
-</ul>
-<h2 id="五、未来推荐方向"><a href="#五、未来推荐方向" class="headerlink" title="五、未来推荐方向"></a>五、未来推荐方向</h2><ul>
-<li>探索正常流 EEG 数据的时序型 LSTM&#x2F;Transformer</li>
-<li>构建 Streamlit 或 Web App 操作系统</li>
-<li>用 GradCAM 进行情绪模型的观察应用</li>
-<li>进一步特征缩减、通道弹性切换，面向实际用 EEG 设备</li>
-</ul>
+<p>我可以基于这张清单为你制定<strong>分阶段代码模板与实现步骤</strong>，从零到仪表盘都能帮你搭出来。是否继续？</p>
 
     </div>
 
@@ -354,12 +457,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/05/12/lolRecord/" rel="prev" title="A record for LOL">
-      <i class="fa fa-chevron-left"></i> A record for LOL
+    <a href="/2025/05/15/ProjectsListInGit/" rel="prev" title="待开展项目清单（6）">
+      <i class="fa fa-chevron-left"></i> 待开展项目清单（6）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/05/15/ProjectsListInGit/" rel="next" title="待开展项目清单（6）">
-      待开展项目清单（6） <i class="fa fa-chevron-right"></i>
+    <a href="/2025/05/21/%E8%84%91%E6%9C%BA%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/" rel="next" title="脑机相关网站收集">
+      脑机相关网站收集 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -419,7 +522,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A7%A0-BCI-%E5%9F%BA%E4%BA%8E-EEG-%E7%9A%84%E6%83%85%E7%BB%AA%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">🧠 BCI 基于 EEG 的情绪分析实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">一、项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">二、数据结构介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.</span> <span class="nav-text">三、分析步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B51%E3%80%91%E5%A4%9A%E9%80%9A%E9%81%93%E5%B9%B3%E5%9D%87%E5%80%BC%E5%88%86%E6%9E%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">【阶段1】多通道平均值分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B52%E3%80%91-FFT-%E9%A2%91%E5%9F%9F%E5%88%86%E6%9E%90"><span class="nav-number">1.3.2.</span> <span class="nav-text">【阶段2】 FFT 频域分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B53%E3%80%91-%E4%BD%BF%E7%94%A8-Random-Forest-%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.3.</span> <span class="nav-text">【阶段3】 使用 Random Forest 进行分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B54%E3%80%91-CNN-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%86%E5%88%AB"><span class="nav-number">1.3.4.</span> <span class="nav-text">【阶段4】 CNN 深度学习识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B55%E3%80%91-%E7%89%B9%E5%BE%81%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.3.5.</span> <span class="nav-text">【阶段5】 特征压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%98%B6%E6%AE%B56%E3%80%91-GradCAM-%E8%A7%82%E5%AF%9F"><span class="nav-number">1.3.6.</span> <span class="nav-text">【阶段6】 GradCAM 观察</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%93%E8%AE%BA"><span class="nav-number">1.4.</span> <span class="nav-text">四、结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%9C%AA%E6%9D%A5%E6%8E%A8%E8%8D%90%E6%96%B9%E5%90%91"><span class="nav-number">1.5.</span> <span class="nav-text">五、未来推荐方向</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%A7%A0-EDF-%E8%84%91%E7%94%B5%E4%BF%A1%E5%8F%B7%E5%8F%AF%E5%88%86%E6%9E%90%E6%B8%85%E5%8D%95%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E-EEG-%E7%9D%A1%E7%9C%A0-BCI-%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">🧠 EDF 脑电信号可分析清单（适用于 EEG&#x2F;睡眠&#x2F;BCI 数据）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A2-%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%B3%A2%E5%BD%A2%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">🟢 第一阶段：基本信息与波形可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A1-%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E9%A2%91%E5%9F%9F%E5%88%86%E6%9E%90%E4%B8%8E%E7%83%AD%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">🟡 第二阶段：频域分析与热图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">3.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B5-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E4%B8%8E%E4%BC%AA%E8%BF%B9%E5%89%94%E9%99%A4"><span class="nav-number">3.1.</span> <span class="nav-text">🔵 第三阶段：空间分布与伪迹剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A0-%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A0%87%E7%AD%BE%E5%88%86%E6%9E%90%EF%BC%88%E5%A6%82%E7%9D%A1%E7%9C%A0%E3%80%81%E4%BB%BB%E5%8A%A1%E6%AE%B5%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">🟠 第四阶段：事件与标签分析（如睡眠、任务段）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B4-%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.1.</span> <span class="nav-text">🔴 第五阶段：特征提取与机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9F%A3-%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%AA%E8%A1%A8%E7%9B%98"><span class="nav-number">4.2.</span> <span class="nav-text">🟣 第六阶段：交互式可视化仪表盘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%8E%A8%E8%8D%90%E7%BB%84%E5%90%88%E8%B7%AF%E5%BE%84%E7%A4%BA%E6%84%8F"><span class="nav-number">5.</span> <span class="nav-text">✅ 推荐组合路径示意</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -495,11 +598,11 @@
     </label>
     <select class="lang-select" data-canonical="">
       
-        <option value="zh-CN" data-href="/2025/05/13/%E4%B8%80%E6%AC%A1EEG%E6%83%85%E7%BB%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%AE%80%E5%8D%95%E5%B0%9D%E8%AF%95/" selected="">
+        <option value="zh-CN" data-href="/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/" selected="">
           简体中文
         </option>
       
-        <option value="en" data-href="/en/2025/05/13/%E4%B8%80%E6%AC%A1EEG%E6%83%85%E7%BB%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%AE%80%E5%8D%95%E5%B0%9D%E8%AF%95/" selected="">
+        <option value="en" data-href="/en/2025/05/15/%E4%B8%80%E6%AC%A1EEG%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%83%E4%B9%A0/" selected="">
           English
         </option>
       
